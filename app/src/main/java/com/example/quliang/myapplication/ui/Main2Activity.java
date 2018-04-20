@@ -3,6 +3,7 @@ package com.example.quliang.myapplication.ui;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.example.quliang.myapplication.R;
 import com.example.quliang.myapplication.adapter.PdfListAdapter;
 import com.example.quliang.myapplication.bean.PdfObj;
+import com.example.quliang.myapplication.widget.NestedListView;
 import com.github.barteksc.pdfviewer.PDFView;
 
 public class Main2Activity extends AppCompatActivity {
@@ -24,6 +26,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
 
         ListView listView =findViewById(R.id.listView);
 
