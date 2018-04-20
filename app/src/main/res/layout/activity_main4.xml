@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.quliang.myapplication.widget.NestedScrollParentLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/title_container"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@id/title_container"
+            android:id="@+id/title_container1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ffff00"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <com.example.quliang.myapplication.widget.NestedListView
+
+            android:id="@+id/list_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/title_container1"/>
+    </com.example.quliang.myapplication.widget.NestedScrollParentLayout>
+
+</RelativeLayout>
