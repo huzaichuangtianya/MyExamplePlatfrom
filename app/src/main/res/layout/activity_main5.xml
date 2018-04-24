@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="220dp"
             app:contentScrim="#000000"
-            app:layout_scrollFlags="scroll">
+            app:layout_scrollFlags="scroll">e
 
             <TextView
                 android:layout_width="match_parent"
