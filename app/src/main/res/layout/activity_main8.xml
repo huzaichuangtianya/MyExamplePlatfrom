@@ -8,49 +8,44 @@
     tools:context="com.example.quliang.myapplication.ui.Main5Activity">
 
     <android.support.design.widget.AppBarLayout
-        app:elevation="0dp"
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-       >
+        app:elevation="0dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:minHeight="56dp"
             app:contentScrim="#987545"
-            app:layout_scrollFlags="scroll|snap"
-            >
+            app:layout_scrollFlags="scroll|enterAlways">
 
-            <android.support.v7.widget.Toolbar
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/tb_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                app:titleTextColor="#ffffff"
-                app:title="@string/app_name"
-                app:popupTheme="@style/AppTheme"
                 android:background="#ff00ff"
                 app:layout_scrollFlags="scroll"
-                />
+                app:popupTheme="@style/AppTheme"
+                app:title="@string/app_name"
+                app:titleTextColor="#ffffff" />
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
-        <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:gravity="center"-->
-            <!--android:text="悬浮的部分" />-->
+        <TextView
+            android:id="@+id/xf"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="悬浮的部分" />
 
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v7.widget.RecyclerView
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v7.widget.RecyclerView>
 
 </android.support.design.widget.CoordinatorLayout>
-    <!--app:theme="@style/OverFlowMenuTheme"-->
