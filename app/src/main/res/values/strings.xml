@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
+    <!-- LPFileUtil -->
+    <string name="lpfileutil_unidentified_sdcard">未识别SDCard！</string>
+
+    <!--QFileNetty-->
+    <string name="qFileNetty_upload_file_failure">上传文件失败</string>
+    <string name="qFileNetty_download_file_failure">下载文件失败</string>
 </resources>

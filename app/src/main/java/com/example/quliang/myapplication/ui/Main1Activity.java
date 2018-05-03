@@ -1,32 +1,43 @@
 package com.example.quliang.myapplication.ui;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
 import com.example.quliang.myapplication.R;
+import com.example.quliang.myapplication.util.FileManager;
 import com.github.barteksc.pdfviewer.PDFView;
 
-public class Main1Activity extends AppCompatActivity {
+import java.io.File;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 
+public class Main1Activity extends AppCompatActivity {
+    PDFView pdfView;
     private static final String TAG = Main1Activity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
 
-        PDFView pdfView=(PDFView)findViewById(R.id.pdfView);
+         pdfView=(PDFView)findViewById(R.id.pdfView);
 
+//        "http://10.50.30.189:8080/web1/img/11.PDF"
 
-        pdfView.fromAsset("032001500111_83112616.PDF").load();
+//        pdfView.fromUri(Uri.parse("http://10.50.30.189:8080/web1/img/11.PDF")).load();
+        pdfView.fromFile(new File(FileManager.PATH_TEMP+"shiyan.PDF")).load();
+//        shwoPdf();
+
+//        pdfView.fromAsset("032001500111_83112616.PDF").load();
 
         pdfView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG,"kankan");
-                Log.d(TAG,"kankan");
-                Log.d(TAG,"kankan");
+
             }
         });
 //                .pages(0, 2, 1, 3, 3, 3) // all pages are displayed by default
@@ -77,6 +88,35 @@ public class Main1Activity extends AppCompatActivity {
 
 
 
+}
+
+private void shwoPdf(){
+    URL url = null;
+    try {
+        url = new URL("http://10.50.30.189:8080/web1/img/11.PDF");
+
+    // 打开链接
+    // 指定一个下载的目标链接，然后构建一个URL对象，调用该 对象的openConnection方法来建立一个数据通路（连接）。
+    URLConnection connection =  url.openConnection();
+    // 设置长链接
+    connection.setRequestProperty("Connection", "Kepp-Alive");
+    // 设置连接超时
+    connection.setConnectTimeout(60 * 1000);
+
+    int contentLength = connection.getContentLength();
+    // 输入流
+    // 代码的最后一行使用
+    // connection.getInputStream，拿到一个输入流对象，通过这个流对象我们就可以读取到这个文件的内容了。下面要做的，就是读取这个流，将流写入我
+    // 们的本地文件
+    InputStream is = connection.getInputStream();
+        pdfView.fromStream(is).load();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+
+//    Uri uri=Uri.parse("http://10.50.30.189:8080/web1/img/11.PDF");
+//    pdfView.fromUri(uri);
 }
 
 
