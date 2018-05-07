@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.quliang.myapplication.R;
 import com.example.quliang.myapplication.bean.PdfObj;

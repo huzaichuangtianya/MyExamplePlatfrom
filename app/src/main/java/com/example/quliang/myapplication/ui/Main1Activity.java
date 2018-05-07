@@ -30,7 +30,7 @@ public class Main1Activity extends AppCompatActivity {
 
 //        pdfView.fromUri(Uri.parse("http://10.50.30.189:8080/web1/img/11.PDF")).load();
 //        pdfView.fromFile(new File(FileManager.PATH_TEMP+"shiyan1.PDF")).load();
-        pdfView.fromFile(new File(FileManager.PATH_TEMP+"shiyan.PDF")).load();
+        pdfView.fromFile(new File(FileManager.PATH_TEMP+"shiyan1.PDF")).load();
 //        shwoPdf();
 
 //        pdfView.fromAsset("032001500111_83112616.PDF").load();
