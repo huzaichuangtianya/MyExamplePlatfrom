@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context="com.example.quliang.myapplication.ui.NativeShareActivity">
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="184dp"
+        android:layout_height="62dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="41dp"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/downloadBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="229dp" />
+    <Button
+        android:id="@+id/sharedBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="229dp" />
+    <Button
+        android:id="@+id/wchatBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="微信分享"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="229dp" />
+    <Button
+        android:id="@+id/qqBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="qq分享"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="229dp" />
+</LinearLayout>

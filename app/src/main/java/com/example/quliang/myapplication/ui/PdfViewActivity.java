@@ -32,7 +32,7 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void run() {
                         try {
-                             b=DownAndUploadPic.downloadFile("http://10.50.30.189:8080/web1/img/11.PDF", FileManager.PATH_TEMP,"shiyan.PDF");
+                             b=DownAndUploadPic.downloadFile("http://10.50.30.189:8080/web1/img/11.PDF", FileManager.PATH_TEMP,"shiyan1.PDF");
 
                             handler.post(new Runnable() {
                                 @Override

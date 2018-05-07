@@ -6,6 +6,16 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.security.SecureRandom;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 /**
  * 
@@ -17,15 +27,15 @@ public class DownAndUploadPic {
 
 
 	public static boolean downloadFile(String uri,String dir,String fileName) throws Exception {
-//		SSLContext sc = SSLContext.getInstance("TLS");
-//		sc.init(null, new TrustManager[]{new MyTrustManager()}, new SecureRandom());
-//		HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-//		HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
-//			@Override
-//			public boolean verify(String hostname, SSLSession session) {
-//				return true;
-//			}
-////		});
+		SSLContext sc = SSLContext.getInstance("TLS");
+		sc.init(null, new TrustManager[]{new MyTrustManager()}, new SecureRandom());
+		HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+		HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+			@Override
+			public boolean verify(String hostname, SSLSession session) {
+				return true;
+			}
+		});
 		URL url = new URL(uri);
 		// 打开链接
 		// 指定一个下载的目标链接，然后构建一个URL对象，调用该 对象的openConnection方法来建立一个数据通路（连接）。
@@ -73,5 +83,24 @@ public class DownAndUploadPic {
 
 		is.close();
 		return true;
+	}
+
+	private static class MyTrustManager implements X509TrustManager {
+
+
+		@Override
+		public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+		}
+
+		@Override
+		public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+		}
+
+		@Override
+		public X509Certificate[] getAcceptedIssuers() {
+			return new X509Certificate[0];
+		}
 	}
 }
