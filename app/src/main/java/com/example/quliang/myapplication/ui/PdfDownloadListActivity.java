@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.quliang.myapplication.MyApplication;
 import com.example.quliang.myapplication.R;
 import com.example.quliang.myapplication.adapter.PdfDownloadListAdapter;
 import com.example.quliang.myapplication.adapter.PdfListAdapter;
@@ -21,6 +22,7 @@ import com.example.quliang.myapplication.bean.BillPathAndViewBean;
 import com.example.quliang.myapplication.bean.PdfNetBean;
 import com.example.quliang.myapplication.bean.PdfObj;
 import com.example.quliang.myapplication.logic.JSPdfDownloadRun;
+import com.example.quliang.myapplication.util.AppLog;
 import com.example.quliang.myapplication.util.FileManager;
 import com.example.quliang.myapplication.util.ToastUtils;
 
@@ -36,8 +38,12 @@ public class PdfDownloadListActivity extends AppCompatActivity implements View.O
     ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf_download_list);
+        super.onCreate(savedInstanceState);
+
+        MyApplication myApplication=(MyApplication) getApplication();
+
+        AppLog.D("myApplication.getKan1():"+myApplication.getKan1());
 
          listView =findViewById(R.id.listView);
 

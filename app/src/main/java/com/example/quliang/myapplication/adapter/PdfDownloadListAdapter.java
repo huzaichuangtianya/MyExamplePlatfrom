@@ -91,8 +91,6 @@ public class PdfDownloadListAdapter extends QBaseAdapter<PdfNetBean>  {
             Holder mHolder = (Holder) view.getTag();
 
             final PdfNetBean pdfObj = getItem(posi);
-            final   View childView= ((ViewGroup)view).getChildAt(0);
-            AppLog.D("pdfObj.isLoad():"+pdfObj.isLoad());
             if(pdfObj.isLoad()){
                 mHolder.pdfView.fromFile(new File(pdfObj.getFilePath()+pdfObj.getFileName())).load();
             }else{

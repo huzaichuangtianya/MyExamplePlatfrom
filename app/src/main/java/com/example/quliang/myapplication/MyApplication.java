@@ -18,4 +18,14 @@ public class MyApplication extends Application {
         ZXingLibrary.initDisplayOpinion(this);
 
     }
+
+    private String kan1="kankna";
+
+    public String getKan1() {
+        return kan1;
+    }
+
+    public void setKan1(String kan1) {
+        this.kan1 = kan1;
+    }
 }
