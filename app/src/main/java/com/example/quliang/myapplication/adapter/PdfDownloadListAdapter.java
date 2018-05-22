@@ -25,14 +25,14 @@ import java.io.File;
  * Created by quliang on 2017/9/13.
  */
 
-public class PdfDownloadListAdapter extends QBaseAdapter<PdfNetBean>  {
+public class PdfDownloadListAdapter extends QBaseAdapter<PdfNetBean> {
 
 
     private Handler handler;
 
     public PdfDownloadListAdapter(Activity context, Handler handler) {
         super(context);
-        this.handler=handler;
+        this.handler = handler;
 
     }
 
@@ -49,14 +49,44 @@ public class PdfDownloadListAdapter extends QBaseAdapter<PdfNetBean>  {
         }
 
         final PdfNetBean pdfObj = getItem(i);
-        final   View childView= ((ViewGroup)view).getChildAt(0);
-        AppLog.D("pdfObj.isLoad():"+pdfObj.isLoad());
-        if(pdfObj.isLoad()){
-            mHolder.pdfView.fromFile(new File(pdfObj.getFilePath()+pdfObj.getFileName())).load();
-        }else{
+//        final   View childView= ((ViewGroup)view).getChildAt(0);
+        AppLog.D("pdfObj.isLoad():" + pdfObj.isLoad());
+
+        notifData(i, view, mHolder);
+//        if(pdfObj.isLoad()){
+//            mHolder.pdfView.fromFile(new File(pdfObj.getFilePath()+pdfObj.getFileName())).load();
+//        }else{
+//            mHolder.pdfView.invalidate();
+//        }
+
+
+        return view;
+    }
+
+    private class Holder {
+        PDFView      pdfView;
+        LinearLayout linear;
+    }
+
+    public void updataView(int posi, ListView listView) {
+        int visibleFirstPosi = listView.getFirstVisiblePosition();
+        int visibleLastPosi  = listView.getLastVisiblePosition();
+
+
+        if (posi >= visibleFirstPosi && posi <= visibleLastPosi) {
+            View   view    = listView.getChildAt(posi - visibleFirstPosi);
+            Holder mHolder = (Holder) view.getTag();
+            notifData(posi - 1, view, mHolder);
+        }
+    }
+
+    private void notifData(int posi, final View view, Holder mHolder) {
+        final PdfNetBean pdfObj = getItem(posi);
+        if (pdfObj.isLoad()) {
+            mHolder.pdfView.fromFile(new File(pdfObj.getFilePath() + pdfObj.getFileName())).load();
+        } else {
             mHolder.pdfView.invalidate();
         }
-
 
         mHolder.pdfView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -68,35 +98,11 @@ public class PdfDownloadListAdapter extends QBaseAdapter<PdfNetBean>  {
         mHolder.pdfView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                if(pdfObj.isLoad())
-                handler.sendMessage(handler.obtainMessage(1,new BillPathAndViewBean(pdfObj,childView)));
+                if (pdfObj.isLoad())
+                    handler.sendMessage(handler.obtainMessage(1, new BillPathAndViewBean(pdfObj, view)));
 
                 return true;
             }
         });
-        return view;
     }
-
-    private class Holder {
-        PDFView      pdfView;
-        LinearLayout linear;
-    }
-
-
-    public void updataView(int posi, ListView listView) {
-        int visibleFirstPosi = listView.getFirstVisiblePosition();
-        int visibleLastPosi = listView.getLastVisiblePosition();
-        if (posi >= visibleFirstPosi && posi <= visibleLastPosi) {
-            View                  view   = listView.getChildAt(posi - visibleFirstPosi);
-            Holder mHolder = (Holder) view.getTag();
-
-            final PdfNetBean pdfObj = getItem(posi);
-            if(pdfObj.isLoad()){
-                mHolder.pdfView.fromFile(new File(pdfObj.getFilePath()+pdfObj.getFileName())).load();
-            }else{
-                mHolder.pdfView.invalidate();
-            }
-        }
-    }
-
 }

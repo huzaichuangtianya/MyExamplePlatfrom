@@ -29,15 +29,16 @@ public class JSPdfDownloadRun implements Runnable {
     }
 
     private boolean downloadFile() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         File file = new File(FileManager.PATH_TEMP, pdfNetBean.getFileName());
         if (file.exists()) {
             pdfNetBean.setLoad(true);
-            handler.sendEmptyMessage(1);
+//            handler.sendEmptyMessage(1);
+            handler.sendMessage(handler.obtainMessage(1,pdfNetBean.getIndex()));
         } else {
 
             try {

@@ -32,52 +32,72 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class PdfDownloadListActivity extends AppCompatActivity implements View.OnClickListener{
+public class PdfDownloadListActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = Main2Activity.class.getSimpleName();
     PdfDownloadListAdapter pdfDownloadListAdapter;
-    ListView listView;
+    ListView               listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_pdf_download_list);
         super.onCreate(savedInstanceState);
 
-        MyApplication myApplication=(MyApplication) getApplication();
+        MyApplication myApplication = (MyApplication) getApplication();
 
-        AppLog.D("myApplication.getKan1():"+myApplication.getKan1());
+        AppLog.D("myApplication.getKan1():" + myApplication.getKan1());
 
-         listView =findViewById(R.id.listView);
+        listView = findViewById(R.id.listView);
 
-         pdfDownloadListAdapter =new PdfDownloadListAdapter(this,handler);
-        listView.setAdapter(pdfDownloadListAdapter);
 
-        executorService= Executors.newFixedThreadPool(2);
+        initHead();
+        listView.addHeaderView(view);
+
+
+//        executorService = Executors.newFixedThreadPool(2);
         initData();
+        handler.sendEmptyMessage(1);
+
+//        handler.sendEmptyMessage(5);
+//        handler.sendEmptyMessage(5);
     }
-    private void initData(){
-        for(int i=1;i<16;i++){
-            pdfDownloadListAdapter.getDataList().add(new PdfNetBean(FileManager.PATH_TEMP,i+".PDF",false,i-1));
+
+    private View view;
+
+    private void initHead() {
+        view = getLayoutInflater().inflate(R.layout.view_head_pdfdownload, null);
+    }
+
+
+    private void initData() {
+        pdfDownloadListAdapter = new PdfDownloadListAdapter(this, handler);
+        listView.setAdapter(pdfDownloadListAdapter);
+        for (int i = 1; i < 16; i++) {
+            pdfDownloadListAdapter.getDataList().add(new PdfNetBean(FileManager.PATH_TEMP, i + ".PDF", true, i));
         }
         pdfDownloadListAdapter.notifyDataSetChanged();
 
-        DownloadPdf(pdfDownloadListAdapter.getDataList());
+//        pdfDownloadListAdapter.notifyDataSetChanged();
+
+//        DownloadPdf(pdfDownloadListAdapter.getDataList());
+
     }
 
 
-Handler handler=new Handler(){
-    @Override
-    public void handleMessage(Message msg) {
-        switch (msg.what){
-            case 1:
-               int index=(int)msg.obj;
-                pdfDownloadListAdapter.updataView(index, listView);//动态修改
-//                pdfDownloadListAdapter.notifyDataSetChanged();
-                break;
-            case 2:
-                ToastUtils.toastLong(PdfDownloadListActivity.this,"下载成功了");
-                break;
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+//                    int index = (int) msg.obj;
+//                    pdfDownloadListAdapter.updataView(index, listView);//动态修改
+                    pdfDownloadListAdapter.notifyDataSetChanged();
+                    break;
+                case 2:
+                    ToastUtils.toastLong(PdfDownloadListActivity.this, "下载成功了");
+                    break;
+            }
         }
-    }
-};
+    };
 
     @Override
     public void onClick(View v) {
@@ -95,9 +115,10 @@ Handler handler=new Handler(){
 //    }
 
     private ExecutorService executorService;
+
     private void DownloadPdf(List<PdfNetBean> pdfNetBeans) {
         for (PdfNetBean pdfNetBean : pdfNetBeans) {
-            executorService.execute(new JSPdfDownloadRun(pdfNetBean,handler));
+            executorService.execute(new JSPdfDownloadRun(pdfNetBean, handler));
         }
     }
 
