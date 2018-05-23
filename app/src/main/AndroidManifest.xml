@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- 程序退出 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSESS" />
     <uses-permission android:name="android.permission.RUN_INSTRUMENTATION" />
     <uses-permission android:name="android.intent.action.VIEW" />
@@ -45,7 +46,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.PdfDownloadListActivity">
+        <activity android:name=".ui.MyCameraActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,7 +58,8 @@
         <activity android:name=".ui.FileDirShowActivity" />
         <!-- <activity android:name=".ui.NativeShareActivity"></activity> -->
         <!-- <activity android:name=".ui.PdfDownloadListActivity"></activity> -->
-        <!--<activity android:name=".ui.MIUIToastActivity"></activity>-->
+        <!-- <activity android:name=".ui.MIUIToastActivity"></activity> -->
+        <!--<activity android:name=".ui.MyCameraActivity"></activity>-->
     </application>
 
 </manifest>
