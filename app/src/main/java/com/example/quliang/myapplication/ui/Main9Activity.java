@@ -37,6 +37,7 @@ final static String TAG=Main9Activity.class.getSimpleName();
         setContentView(R.layout.activity_main9);
 
         text   = (TextView) findViewById(R.id.text);
+
         text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
