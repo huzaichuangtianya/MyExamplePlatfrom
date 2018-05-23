@@ -11,7 +11,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/ll_bottom"/>
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="horizontal"
             android:id="@+id/ll_bottom"
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -32,5 +33,13 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10dp"
                 android:text="拍照"/>
-        </RelativeLayout>
+            <Button
+                android:id="@+id/btnSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:text="前后置切换"/>
+        </LinearLayout>
 </RelativeLayout>

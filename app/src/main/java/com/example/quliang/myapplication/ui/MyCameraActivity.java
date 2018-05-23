@@ -12,6 +12,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -23,10 +24,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MyCameraActivity extends AppCompatActivity implements View.OnClickListener {
-    SurfaceView    sfv;
-    RelativeLayout ll_bottom;
-    ImageView      iv;
-    Button         btn;
+    SurfaceView  sfv;
+    LinearLayout ll_bottom;
+    ImageView    iv;
+    Button       btn;
+    Button       btnSwitch;
 
     private Camera        camera;
     private SurfaceHolder surfaceHolder;
@@ -37,10 +39,12 @@ public class MyCameraActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_my_camera);
         sfv = findViewById(R.id.sfv);
         ll_bottom = findViewById(R.id.ll_bottom);
+        btnSwitch = findViewById(R.id.btnSwitch);
         iv = findViewById(R.id.iv);
         btn = findViewById(R.id.btn);
 
         btn.setOnClickListener(this);
+        btnSwitch.setOnClickListener(this);
 
         camera = Camera.open();
         surfaceHolder = sfv.getHolder();
@@ -89,6 +93,10 @@ public class MyCameraActivity extends AppCompatActivity implements View.OnClickL
                         }
                     }
                 });
+                break;
+
+            case R.id.btnSwitch:
+                switchCamera();
                 break;
         }
     }
@@ -157,12 +165,62 @@ public class MyCameraActivity extends AppCompatActivity implements View.OnClickL
         }
     };
 
+
+    int cameraPosition = 1;
+
+    public void switchCamera() {
+        //切换前后摄像头
+        int               cameraCount = 0;
+        Camera.CameraInfo cameraInfo  = new Camera.CameraInfo();
+        cameraCount = Camera.getNumberOfCameras();//得到摄像头的个数
+
+        for (int i = 0; i < cameraCount; i++) {
+            Camera.getCameraInfo(i, cameraInfo);//得到每一个摄像头的信息
+            if (cameraPosition == 1) {
+                //现在是后置，变更为前置
+                if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {//代表摄像头的方位，CAMERA_FACING_FRONT前置      CAMERA_FACING_BACK后置
+                    camera.stopPreview();//停掉原来摄像头的预览
+                    camera.release();//释放资源
+                    camera = null;//取消原来摄像头
+                    camera = Camera.open(i);//打开当前选中的摄像头
+                    try {
+                        camera.setPreviewDisplay(surfaceHolder);//通过surfaceview显示取景画面
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    camera.startPreview();//开始预览
+                    cameraPosition = 0;
+                    break;
+                }
+            } else {
+                //现在是前置， 变更为后置
+                if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {//代表摄像头的方位，CAMERA_FACING_FRONT前置      CAMERA_FACING_BACK后置
+                    camera.stopPreview();//停掉原来摄像头的预览
+                    camera.release();//释放资源
+                    camera = null;//取消原来摄像头
+                    camera = Camera.open(i);//打开当前选中的摄像头
+                    try {
+                        camera.setPreviewDisplay(surfaceHolder);//通过surfaceview显示取景画面
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    camera.startPreview();//开始预览
+                    cameraPosition = 1;
+                    break;
+                }
+            }
+
+        }
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        if(camera==null){
-            camera=Camera.open();
-            if(surfaceHolder!=null){
+        if (camera == null) {
+            camera = Camera.open();
+            if (surfaceHolder != null) {
                 startPreview();
             }
         }
@@ -172,7 +230,7 @@ public class MyCameraActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onPause() {
         super.onPause();
-        if(camera!=null) {
+        if (camera != null) {
             stopCamera();
         }
     }
