@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.quliang.myapplication.ui.TextChangelineActivity">
+
+
+    <RelativeLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/elec_tax_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="增值税名"
+            />
+
+
+        <TextView
+            android:layout_toRightOf="@+id/elec_tax_name_title"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/elec_tax_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical|right"
+            android:text="你好毒额阿萨发静安寺发圣诞树大"
+            />
+    </RelativeLayout>
+
+    <!--<TextView-->
+        <!--android:text="sdkjfklsdjflksdjflksdjfkldsjfkldsjflk"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+</LinearLayout>
