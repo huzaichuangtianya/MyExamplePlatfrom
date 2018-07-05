@@ -16,7 +16,7 @@ import com.example.quliang.myapplication.R;
 import com.example.quliang.myapplication.adapter.RecyclerViewSimpleAdapter;
 import com.example.quliang.myapplication.bean.SimpleBean;
 
-public class Main8Activity extends AppCompatActivity implements View.OnClickListener {
+public class SimulationMotionEventActivity extends AppCompatActivity implements View.OnClickListener {
 
     RecyclerView recyclerView;
     TextView     xf;

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.quliang.myapplication.ui.NFCActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/edittext_seal_company_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edittext_seal_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edittext_seal_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/edittext_tax_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edittext_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edittext_seal_material"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edittext_seal_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edittext_company_maded_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edittext_company_maded_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edittext_company_checked_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="button"
+                android:id="@+id/clear_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <!--sealCompanyName = (EditText) this.findViewById(R.id.edittext_seal_company_name);-->
+            <!--sealName = (EditText) this.findViewById(R.id.edittext_seal_name);-->
+            <!--sealNumber = (EditText) this.findViewById(R.id.edittext_seal_number);-->
+            <!--sealTaxId = (EditText) this.findViewById(R.id.edittext_tax_id);-->
+            <!--sealCode = (EditText) this.findViewById(R.id.edittext_code);-->
+            <!--sealMaterial = (EditText) this.findViewById(R.id.edittext_seal_material);-->
+            <!--sealSize = (EditText) this.findViewById(R.id.edittext_seal_size);-->
+
+            <!--companyMadedName = (EditText) this.findViewById(R.id.edittext_company_maded_name);-->
+            <!--companyMadedTime = (EditText) this.findViewById(R.id.edittext_company_maded_time);-->
+
+            <!--companyCheckedName = (EditText) this.findViewById(R.id.edittext_company_checked_name);-->
+
+            <!--clearBtn = (Button) this.findViewById(R.id.clear_btn);-->
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

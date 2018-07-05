@@ -37,6 +37,11 @@
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.NFC" />
+    <!-- 要求当前设备必须要有NFC芯片 -->
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
 
     <application
         android:name=".MyApplication"
@@ -46,13 +51,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.TextChangelineActivity">
+        <activity android:name=".ui.SimulationMotionEventActivity"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!--<intent-filter>-->
+                <!--<action android:name="android.nfc.action.NDEF_DISCOVERED" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!--<data android:mimeType="text/plain" />-->
+            <!--</intent-filter>-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.nfc.action.TAG_DISCOVERED"/>-->
+            <!--</intent-filter>-->
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+            </intent-filter>
+            <meta-data android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
         </activity>
+
         <activity android:name=".ui.annotation.NextActivity" />
         <!-- <activity android:name=".ui.PdfViewActivity" /> -->
         <activity android:name=".ui.FileDirShowActivity" />
@@ -61,7 +82,8 @@
         <!-- <activity android:name=".ui.MIUIToastActivity"></activity> -->
         <!-- <activity android:name=".ui.MyCameraActivity"></activity> -->
         <!-- <activity android:name=".ui.MyCamera2Activity"></activity> -->
-        <!--<activity android:name=".ui.TextChangelineActivity"></activity>-->
+        <!-- <activity android:name=".ui.TextChangelineActivity"></activity> -->
+        <!--<activity android:name=".ui.NFCActivity"></activity>-->
     </application>
 
 </manifest>

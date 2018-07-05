@@ -1,9 +1,7 @@
 package com.example.quliang.myapplication.ui;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import com.example.quliang.myapplication.R;
@@ -12,13 +10,12 @@ import com.github.barteksc.pdfviewer.PDFView;
 
 import java.io.File;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class Main1Activity extends AppCompatActivity {
+public class PDF1Activity extends AppCompatActivity {
     PDFView pdfView;
-    private static final String TAG = Main1Activity.class.getSimpleName();
+    private static final String TAG = PDF1Activity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

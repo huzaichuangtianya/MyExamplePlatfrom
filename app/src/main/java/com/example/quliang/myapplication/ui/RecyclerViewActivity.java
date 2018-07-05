@@ -5,22 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ArrayAdapter;
 
 import com.example.quliang.myapplication.R;
 import com.example.quliang.myapplication.adapter.RecyclerViewSimpleAdapter;
 import com.example.quliang.myapplication.bean.SimpleBean;
-import com.example.quliang.myapplication.widget.MyListView;
 
-import java.util.ArrayList;
-
-public class Main6Activity extends AppCompatActivity implements View.OnClickListener {
+public class RecyclerViewActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main6);
+        setContentView(R.layout.activity_main7);
         RecyclerView recyclerView   = (RecyclerView) findViewById(R.id.recyclerView);
 
         RecyclerViewSimpleAdapter recyclerViewSimpleAdapter=new RecyclerViewSimpleAdapter();

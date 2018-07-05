@@ -14,7 +14,7 @@ import com.example.quliang.myapplication.ui.dialog.BottomSheetDialog1;
 import com.example.quliang.myapplication.ui.dialog.BottomSheetDialog2;
 import com.example.quliang.myapplication.widget.NestedListView;
 
-public class Main4Activity extends AppCompatActivity implements View.OnClickListener {
+public class NestedListViewActivity extends AppCompatActivity implements View.OnClickListener {
 
 
 

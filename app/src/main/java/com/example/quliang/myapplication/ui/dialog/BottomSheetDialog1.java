@@ -31,7 +31,7 @@ public class BottomSheetDialog1 extends BottomSheetDialogFragment implements Vie
             view3.setOnClickListener(this);
 
             mBottomSheetDialog = new BottomSheetDialog(getContext());
-//            mBottomSheetDialog.setContentView(view);
+            mBottomSheetDialog.setContentView(view);
             mBottomSheetDialog.setCancelable(false);
             mBottomSheetDialog.setCanceledOnTouchOutside(false);
         }

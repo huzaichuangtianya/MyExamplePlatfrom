@@ -1,21 +1,18 @@
 package com.example.quliang.myapplication.ui;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.quliang.myapplication.R;
 import com.example.quliang.myapplication.ui.dialog.BottomSheetDialog1;
 import com.example.quliang.myapplication.ui.dialog.BottomSheetDialog2;
 
-public class Main3Activity extends AppCompatActivity implements View.OnClickListener {
+public class BottomSheetActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Handler handler = new Handler() {
         @Override
@@ -23,7 +20,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
             switch (msg.what) {
                 case 1:
 
-                    Toast.makeText(Main3Activity.this, (String) msg.obj, Toast.LENGTH_LONG).show();
+                    Toast.makeText(BottomSheetActivity.this, (String) msg.obj, Toast.LENGTH_LONG).show();
                     break;
             }
         }
@@ -39,6 +36,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                showBottomSheet2();
                 showBottomSheet1();
             }
         });

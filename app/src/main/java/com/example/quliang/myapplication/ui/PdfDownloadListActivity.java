@@ -1,39 +1,26 @@
 package com.example.quliang.myapplication.ui;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.quliang.myapplication.MyApplication;
 import com.example.quliang.myapplication.R;
 import com.example.quliang.myapplication.adapter.PdfDownloadListAdapter;
-import com.example.quliang.myapplication.adapter.PdfListAdapter;
-import com.example.quliang.myapplication.bean.BillPathAndViewBean;
 import com.example.quliang.myapplication.bean.PdfNetBean;
-import com.example.quliang.myapplication.bean.PdfObj;
 import com.example.quliang.myapplication.logic.JSPdfDownloadRun;
 import com.example.quliang.myapplication.util.AppLog;
 import com.example.quliang.myapplication.util.FileManager;
 import com.example.quliang.myapplication.util.ToastUtils;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class PdfDownloadListActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG = Main2Activity.class.getSimpleName();
+    private static final String TAG = PDF2Activity.class.getSimpleName();
     PdfDownloadListAdapter pdfDownloadListAdapter;
     ListView               listView;
 
