@@ -29,6 +29,7 @@ public class MIUIToastActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Toast.makeText(MIUIToastActivity.this,"nidajihao你号发撒发撒发射的",Toast.LENGTH_LONG).show();
             }
         });

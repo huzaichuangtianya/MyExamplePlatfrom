@@ -1,10 +1,12 @@
-package com.example.quliang.myapplication;
+package com.example.quliang.myapplication.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-public class Test1Activity extends AppCompatActivity {
+import com.example.quliang.myapplication.R;
+
+public class WebViewActivity extends AppCompatActivity {
 
     WebView webview;
 
