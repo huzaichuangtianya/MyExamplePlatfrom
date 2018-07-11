@@ -35,12 +35,16 @@ public class SwipyAppBarScrollListener extends RecyclerView.OnScrollListener imp
     @Override
     public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
         super.onScrollStateChanged(recyclerView, newState);
+        if(shiyanLisener!=null)shiyanLisener.onScrollStateChanged(recyclerView,newState);
+
+
     }
 
     @Override
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
         dispatchScroll();
+        if(shiyanLisener!=null)shiyanLisener.onScrolled(recyclerView,dx,dy);
     }
 
     @Override
@@ -70,5 +74,16 @@ public class SwipyAppBarScrollListener extends RecyclerView.OnScrollListener imp
                 }
             }
         }
+    }
+
+
+    public interface ShiyanLisener{
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState);
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy);
+    }
+
+    private ShiyanLisener shiyanLisener;
+    public void setOnShiyanLisener(ShiyanLisener shiyanLisener){
+        this.shiyanLisener=shiyanLisener;
     }
 }
