@@ -85,13 +85,15 @@
             app:layout_scrollFlags="scroll">
 
             <TextView
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#987545"
                 android:gravity="center"
                 android:text="banner区域"
                 android:textColor="#ffffff" />
-
+            <!--&lt;!&ndash;app:layout_collapseMode="parallax"&ndash;&gt;-->
 
 
         </android.support.design.widget.CollapsingToolbarLayout>

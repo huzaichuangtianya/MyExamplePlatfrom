@@ -1,5 +1,7 @@
 package com.example.quliang.myapplication.net;
 
+import com.example.quliang.myapplication.util.AppLog;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -27,15 +29,15 @@ public class DownAndUploadPic {
 
 
 	public static boolean downloadFile(String uri,String dir,String fileName) throws Exception {
-		SSLContext sc = SSLContext.getInstance("TLS");
-		sc.init(null, new TrustManager[]{new MyTrustManager()}, new SecureRandom());
-		HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-		HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
-			@Override
-			public boolean verify(String hostname, SSLSession session) {
-				return true;
-			}
-		});
+//		SSLContext sc = SSLContext.getInstance("TLS");
+//		sc.init(null, new TrustManager[]{new MyTrustManager()}, new SecureRandom());
+//		HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+//		HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+//			@Override
+//			public boolean verify(String hostname, SSLSession session) {
+//				return true;
+//			}
+//		});
 		URL url = new URL(uri);
 		// 打开链接
 		// 指定一个下载的目标链接，然后构建一个URL对象，调用该 对象的openConnection方法来建立一个数据通路（连接）。
@@ -63,8 +65,9 @@ public class DownAndUploadPic {
 
 		File file = new File(dir + fileName);
 		if (file.exists()) {// 文件已存在,并且不重复下载进行删除
-			// file.delete();
-		} else {
+			 file.delete();
+		}
+
 			// 下载
 			try {
 				byte[]       bs = new byte[4 * 1024];
@@ -72,6 +75,7 @@ public class DownAndUploadPic {
 				OutputStream os = new FileOutputStream(dir + fileName);
 				while ((len = is.read(bs)) != -1) {
 					os.write(bs, 0, len);
+					AppLog.D("len:" + len);
 				}
 				os.close();
 			} catch (Exception e) {
@@ -79,7 +83,7 @@ public class DownAndUploadPic {
 			} catch (OutOfMemoryError err) {
 				err.printStackTrace();
 			}
-		}
+
 
 		is.close();
 		return true;

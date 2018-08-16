@@ -41,7 +41,7 @@ Handler handler=new Handler();
                     @Override
                     public void run() {
                         recyclerViewSimpleAdapter.getDataList().clear();
-                        getData(10);
+                        getData(20);
                         recyclerView.refreshComplete();
                     }
                 },1000);
@@ -49,10 +49,12 @@ Handler handler=new Handler();
 
             @Override
             public void onLoadMore() {
+
+
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        getData(10);
+                        getData(20);
                         recyclerView.refreshComplete();
                     }
                 },1000);

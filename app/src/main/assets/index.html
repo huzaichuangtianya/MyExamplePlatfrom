@@ -2,56 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Title</title>
-    <style type="text/css">
-
-      .leftAndRight{
-          padding: 10px;
-      }
-
-    </style>
 </head>
-<body style="margin: 0px;">
+<body>
+<img id="img" alt="上海鲜花港 - 郁金香" style="width: 100%;height: 100%"/>
+<script>
+function  aa(path){
+alert(path);
+ var img=document.getElementById("img");
+    img.src=path;
+}
 
-<table width="100%" border="1px" >
-    <tr ><td style="padding-left: 10px;padding-right: 10px">nihao</td><td style="padding-left: 10px;padding-right: 10px">nihao</td></tr>
-    <tr><td>nihao</td><td>nihao</td></tr>
-
-</table>
-
-<div> <p>jsfkldjfklsdj jdskjflsdjfkls jsdfkljflksdj fjksjflksjdf sjla;as;f
-    jfsklfja;ksdj jksajdfkl;fj ;dfsjk;ldjf a;djfsdk jslkdjfal; sjdfaljfl
-    jfsklfja;ksdj jksajdfkl;fj ;dfsjk;ldjf a;djfsdk jslkdjfal; sjdfaljfl
-    jfsklfja;ksdj jksajdfkl;fj ;dfsjk;ldjf a;djfsdk jslkdjfal; sjdfaljfl
-    jfsklfja;ksdj jksajdfkl;fj ;dfsjk;ldjf a;djfsdk jslkdjfal; sjdfaljfl
-</p></div>
-
-
-
-<div>
-
-    <table width="100%" >
-        <tr>
-            <td style="padding-left: 10px">更名过户</td>   <td class="cellstate" style="padding-right: 10px"></td>
-        </tr>
-    </table>
-
-    <p class="applyTime leftAndRight" style="padding: 10px">申请时间</p>
-    <div style="height: 1px;background: #D9DEDF"/>
-    <p class="proNo leftAndRight">预申请编号</p>
-    <p class="customName leftAndRight">客户名称</p>
-    <p class="eleAddress leftAndRight">用电地址</p>
-
-    <p class="cellFlowState leftAndRight">流程状态</p>
-    <div class="container leftAndRight" style="padding-bottom: 10px">
-        <div class="leftLine"></div>
-        <div class="listContainer">
-            <ul class="time-vertical" >
-            </ul>
-        </div>
-    </div>
-
-</div>
-
+</script>
 </body>
 </html>
