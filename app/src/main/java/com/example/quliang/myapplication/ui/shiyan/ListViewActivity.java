@@ -1,4 +1,4 @@
-package com.example.quliang.myapplication.ui;
+package com.example.quliang.myapplication.ui.shiyan;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter;
 
 import com.example.quliang.myapplication.R;
 import com.example.quliang.myapplication.widget.MyListView;
-import com.example.quliang.myapplication.widget.NestedListView;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.quliang.myapplication.ui;
+package com.example.quliang.myapplication.ui.camera;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.quliang.myapplication.R;

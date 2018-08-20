@@ -1,4 +1,4 @@
-package com.example.quliang.myapplication.ui;
+package com.example.quliang.myapplication.ui.webnative;
 
 import android.os.Build;
 import android.os.Environment;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.quliang.myapplication.ui.PdfViewActivity">
+    tools:context="com.example.quliang.myapplication.ui.pdf.PdfViewActivity">
 <TextView
     android:padding="10dp"
     android:id="@+id/startNet"

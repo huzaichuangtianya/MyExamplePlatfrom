@@ -1,13 +1,9 @@
-package com.example.quliang.myapplication.ui;
+package com.example.quliang.myapplication.ui.shiyan;
 
-import android.app.Instrumentation;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,8 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quliang.myapplication.R;
-import com.example.quliang.myapplication.adapter.RecyclerViewSimpleAdapter;
-import com.example.quliang.myapplication.bean.SimpleBean;
 
 public class Main9Activity extends AppCompatActivity implements View.OnClickListener {
 final static String TAG=Main9Activity.class.getSimpleName();

@@ -1,4 +1,4 @@
-package com.example.quliang.myapplication.ui;
+package com.example.quliang.myapplication.ui.shiyan;
 
 import android.app.Instrumentation;
 import android.os.Bundle;

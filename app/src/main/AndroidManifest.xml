@@ -52,7 +52,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.ApkDownloadActivity"
+            android:name=".ui.webnative.MyWebViewActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -78,7 +78,7 @@
         </activity>
         <activity android:name=".ui.annotation.NextActivity" />
         <!-- <activity android:name=".ui.PdfViewActivity" /> -->
-        <activity android:name=".ui.FileDirShowActivity" />
+        <activity android:name=".ui.shiyan.FileDirShowActivity" />
         <!-- <activity android:name=".ui.NativeShareActivity"></activity> -->
         <!-- <activity android:name=".ui.PdfDownloadListActivity"></activity> -->
         <!-- <activity android:name=".ui.MIUIToastActivity"></activity> -->

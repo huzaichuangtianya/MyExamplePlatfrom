@@ -1,4 +1,4 @@
-package com.example.quliang.myapplication.ui;
+package com.example.quliang.myapplication.ui.nativeshare;
 
 import android.content.ComponentName;
 import android.content.Intent;

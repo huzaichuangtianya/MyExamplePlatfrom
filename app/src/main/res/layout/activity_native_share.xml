@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context="com.example.quliang.myapplication.ui.NativeShareActivity">
+    tools:context="com.example.quliang.myapplication.ui.nativeshare.NativeShareActivity">
     <TextView
         android:id="@+id/textView6"
         android:layout_width="184dp"

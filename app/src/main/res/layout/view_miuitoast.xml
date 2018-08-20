@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/toast_shape"
-    tools:context="com.example.quliang.myapplication.ui.MIUIToastActivity">
+    tools:context="com.example.quliang.myapplication.ui.shiyan.MIUIToastActivity">
 
     <TextView
         android:layout_weight="1"

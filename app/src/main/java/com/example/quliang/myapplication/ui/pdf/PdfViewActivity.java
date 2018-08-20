@@ -1,4 +1,4 @@
-package com.example.quliang.myapplication.ui;
+package com.example.quliang.myapplication.ui.pdf;
 
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
