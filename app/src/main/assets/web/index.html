@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="css/index.css" rel="stylesheet"/>
+</head>
+<body>
+<h4>大家好</h4>
+<button type="button" id="button1" onclick="callAndroid()"  >js调用android</button>
+<button type="button" id="button2" onclick="callAndroid1()"  >js调用android1</button>
+<br>
+<button type="button" id="button3" onclick="callAndroid2()"  >js调用android3</button>
+</body>
+<script src="js/business/index.js"></script>
+<script>
+
+    var a={
+        m1:function () {
+            console.log("dajiaho1");
+        },
+        // m2:function () {
+        //     console.log("dajiaho2");
+        // },
+        m3:function () {
+            console.log("dajiaho3");
+        }
+    };
+
+var w={};
+
+    (function (obj) {
+
+        var wwwwww=a.m2&&a.m2();
+        console.log("wwwwww:"+wwwwww);
+        // a.m1()||a.m2();
+
+        // prompt("nihao","a");
+       // console.log(typeof obj);
+    })(a);
+
+
+//     (function (str) {
+//         var hasOwnProperty = Object.prototype.hasOwnProperty;
+// console.log("str:"+str);
+//         for (var key in a) {
+//             console.log("key:"+key);
+//             if(!hasOwnProperty.hasOwnProperty(a,key)){
+//                 console.log("hasOwnProperty:"+key);
+//                 w[key]=a[key];
+//             }
+//         }
+//
+//         w.m2();
+//
+//     })("woaini");
+    // shiyan.back1&&shiyan.back1("ww");
+</script>
+</html>
