@@ -21,22 +21,16 @@ import com.example.quliang.myapplication.util.AppLog;
 
 import java.util.Set;
 
-public class MyWebViewActivity extends AppCompatActivity implements View.OnClickListener {
+public class MyWebViewBridgeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private WebView webView;
-    private Button  button1;
-    private Button  button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
+        setContentView(R.layout.activity_myweb_bridge);
 
         webView = (WebView) findViewById(R.id.webview);
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
-        button1.setOnClickListener(this);
-        button2.setOnClickListener(this);
         initWebView();
         webView.loadUrl("file:///android_asset/web/index.html");
     }
@@ -118,19 +112,6 @@ public class MyWebViewActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button1:
-                webView.loadUrl("JavaScript:callJs()");
-                break;
-            case R.id.button2:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    webView.evaluateJavascript("callJsValue()", new ValueCallback<String>() {
-                        @Override
-                        public void onReceiveValue(String value) {
-                            AppLog.D("value:" + value);
-                        }
-                    });
-                }
-                break;
         }
     }
 }
