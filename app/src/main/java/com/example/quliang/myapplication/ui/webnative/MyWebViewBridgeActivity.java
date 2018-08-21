@@ -41,73 +41,18 @@ public class MyWebViewBridgeActivity extends AppCompatActivity implements View.O
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setDomStorageEnabled(true);
 
-        webView.setWebChromeClient(new WebChromeClient() {
-            @Override
-            public boolean onJsAlert(WebView view, String url, String message,
-                                     JsResult result) {
-                AppLog.D("url:" + url);
-                AppLog.D("message:" + message);
-                // TODO Auto-generated method stub
-                return super.onJsAlert(view, url, message, result);
-            }
-
-            @Override
-            public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
-
-                Uri uri = Uri.parse(message);
-                if (uri.getScheme().equals("js") && uri.getAuthority().equals("demo")) {
-                    getUriData(uri);
-                    result.confirm("js调用了Android的方法成功啦");
-                    return true;
-                }
-                return super.onJsPrompt(view, url, message, defaultValue, result);
-            }
-        });
-
-        webView.setWebViewClient(new WebViewClient() {
+        webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
             }
-
-            @TargetApi(Build.VERSION_CODES.N)
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-
-                Uri uri = request.getUrl();
-
-                if (uri.getScheme().equals("js") && uri.getAuthority().equals("webview")) {
-                    getUriData(uri);
-                    return true;
-                }
-                return super.shouldOverrideUrlLoading(view, request);
-            }
-
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                Uri uri = Uri.parse(url);
-                if (uri.getScheme().equals("js") && uri.getAuthority().equals("webview")) {
-                    getUriData(uri);
-                    return true;
-                }
-
-                return false;
-            }
         });
 
-        webView.addJavascriptInterface(new AndroidtoJs(), "test");
+
+
     }
 
 
-    private void getUriData(Uri uri) {
-        AppLog.D("uri.getQueryParameterNames():" + uri.getQueryParameterNames());
-
-        Set<String> set = uri.getQueryParameterNames();
-
-        for (String s : set) {
-            AppLog.D("uri.getQueryParameterNames()1:" + s);
-            AppLog.D("uri.getQueryParameter()()1:" + uri.getQueryParameter(s));
-        }
-    }
 
     @Override
     public void onClick(View v) {

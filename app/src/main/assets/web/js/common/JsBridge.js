@@ -37,4 +37,10 @@
         }
     }
 
+    for(mt in innner){
+if(!hasOwnProperty.hasOwnProperty(mt)){
+    JsBridge[mt]=innner[mt];
+}
+    }
+
 })(window);
