@@ -3,12 +3,13 @@
     var JsBridge = win.JsBridge || (win.JsBridge = {});
     var JSBRIDGE_PROTOCOL = 'JSBridge';
     var callb = {};
-    var port = Util.getPort();
+
     var innner = {
 
         call: function (obj, method, param, callback) {
+            var port = Util.getPort();
             callb[port] = callback;
-            var uri=Util.getUri(obj, method, param, callback);
+            var uri=Util.getUri(obj, method, param, port);
             window.prompt(uri,'');
         }
         ,
@@ -25,8 +26,10 @@
         },
 
         getUri: function (obj, method, params, port) {
+
             params = this.getParam(params);
             var uri = JSBRIDGE_PROTOCOL + '://' + obj + ':' + port + '/' + method + '?' + params;
+            console.log("getUri:"+uri);
             return uri;
         },
         getParam: function (param) {
@@ -35,7 +38,7 @@
             }
             return param || '';
         }
-    }
+    };
 
     for(mt in innner){
 if(!hasOwnProperty.hasOwnProperty(mt)){

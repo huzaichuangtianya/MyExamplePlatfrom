@@ -17,6 +17,8 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 
 import com.example.quliang.myapplication.R;
+import com.example.quliang.myapplication.jsbrige.BridgeImpl;
+import com.example.quliang.myapplication.jsbrige.JSBridge;
 import com.example.quliang.myapplication.util.AppLog;
 
 import java.util.Set;
@@ -32,7 +34,7 @@ public class MyWebViewBridgeActivity extends AppCompatActivity implements View.O
 
         webView = (WebView) findViewById(R.id.webview);
         initWebView();
-        webView.loadUrl("file:///android_asset/web/index.html");
+        webView.loadUrl("file:///android_asset/web/html/home.html");
     }
 
     private void initWebView() {
@@ -40,11 +42,22 @@ public class MyWebViewBridgeActivity extends AppCompatActivity implements View.O
         settings.setJavaScriptEnabled(true);
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setDomStorageEnabled(true);
-
+        JSBridge.register("bridgeImpl", BridgeImpl.class);
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
+//                super.onPageFinished(view, url);
+                webView.loadUrl("javascript:pageFinish()");
+            }
+        });
+
+        webView.setWebChromeClient(new WebChromeClient(){
+            @Override
+            public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
+                AppLog.D("onJsPrompt:"+message);
+//                return super.onJsPrompt(view, url, message, defaultValue, result);
+                result.confirm(JSBridge.callJava(view, message));
+                return true;
             }
         });
 

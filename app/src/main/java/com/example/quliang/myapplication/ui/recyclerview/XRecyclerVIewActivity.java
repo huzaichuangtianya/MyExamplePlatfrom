@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.quliang.myapplication.R;
@@ -16,7 +15,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 public class XRecyclerVIewActivity extends AppCompatActivity implements View.OnClickListener {
 Handler handler=new Handler();
     RecyclerViewSimpleAdapter recyclerViewSimpleAdapter;
-    XRecyclerView recyclerView;
+    XRecyclerView             recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

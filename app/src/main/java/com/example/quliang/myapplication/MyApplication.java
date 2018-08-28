@@ -1,7 +1,6 @@
 package com.example.quliang.myapplication;
 
 import android.app.Application;
-import android.support.multidex.MultiDexApplication;
 
 import com.example.quliang.myapplication.util.FileManager;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;

@@ -45,11 +45,11 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'cn.yipianfengye.android:zxing-library:2.2'
-    implementation 'com.android.support:multidex:1.0.1'
+//    implementation 'com.android.support:multidex:1.0.1'
     implementation 'com.squareup:javapoet:1.9.0'
     //    compile('cn.yipianfengye.android:zxing-library:2.1') {
     //        exclude module: 'support-v4'
@@ -60,11 +60,10 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     implementation 'com.squareup.okhttp3:mockwebserver:3.10.0'
     implementation 'com.android.support:design:26+'
-
-    implementation 'io.reactivex.rxjava2:rxjava:2.0.1'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
 //    compile 'com.android.support:multidex:1.0.1'
 //    implementation "io.reactivex.rxjava2:rxjava:2.1.16"
 //    implementation 'io.reactivex:rxandroid:1.0.1'
+    //    implementation 'io.reactivex.rxjava2:rxjava:2.0.1'
+//    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
 }

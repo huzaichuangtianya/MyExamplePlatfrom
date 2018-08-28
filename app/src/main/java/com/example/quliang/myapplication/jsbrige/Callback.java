@@ -15,12 +15,12 @@ public class Callback {
 
     private static   Handler mHandler                  = new Handler(Looper.getMainLooper());
 
-    private static final String  CALLBACK_JS_FORMAT_JSON   = "javascript:JSBridge.onFinish('%s', %s);";
+    private static final String  CALLBACK_JS_FORMAT_JSON   = "javascript:JsBridge.finish('%s', %s);";
     /**
      * String串格式化参数，需要加引号，不然不会调用JSBridge.js中onFinish方法;
      * 原因：JavaScrip参数是String类型时，前后需要加引号
      */
-    private static final String  CALLBACK_JS_FORMAT_STRING = "javascript:JSBridge.onFinish('%s', \"%s\");";
+    private static final String  CALLBACK_JS_FORMAT_STRING = "javascript:JsBridge.finish('%s', \"%s\");";
     private String                 mPort;
     private WeakReference<WebView> mWebViewRef;
 

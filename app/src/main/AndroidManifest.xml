@@ -52,7 +52,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.webnative.MyWebViewActivity"
+            android:name=".ui.webnative.MyWebViewBridgeActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

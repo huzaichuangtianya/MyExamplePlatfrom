@@ -1,5 +1,7 @@
 package com.example.quliang.myapplication.jsbrige;
 
+import android.net.Uri;
+import android.text.TextUtils;
 import android.webkit.WebView;
 
 import java.lang.reflect.Method;
@@ -41,5 +43,44 @@ public class JSBridge {
             }
         }
         return mMethodsMap;
+    }
+
+
+    public static String callJava(WebView webView, String uriString) {
+        String methodName = "";//暴露给js的类中的方法
+        String className = "";//暴露给js的类
+        String param = "{}";//json格式的参数，可是字符串，自己定义
+        String port = "";//用于回调的端口号
+        if (!TextUtils.isEmpty(uriString) && uriString.startsWith("JSBridge")) {
+            int index = uriString.indexOf("?");
+            if(index>0){
+                param = uriString.substring(index+1);
+                uriString = uriString.substring(0,index);
+            }
+
+            Uri uri = Uri.parse(uriString);
+            className = uri.getHost();
+            port = uri.getPort() + "";
+            String path = uri.getPath();
+            if (!TextUtils.isEmpty(path)) {
+                methodName = path.replace("/", "");
+            }
+        }
+
+        if (exposedMethods.containsKey(className)) {
+            HashMap<String, Method> methodHashMap = exposedMethods.get(className);
+
+            if (methodHashMap != null && methodHashMap.size() != 0 && methodHashMap.containsKey(methodName)) {
+                Method method = methodHashMap.get(methodName);
+                if (method != null) {
+                    try {
+                        method.invoke(null, webView, param, new Callback(webView, port));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

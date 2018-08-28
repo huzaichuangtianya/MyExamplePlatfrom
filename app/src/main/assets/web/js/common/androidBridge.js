@@ -1,8 +1,8 @@
 
 
-function pageFinish(){
-    console.log("pageFinish");
-
+function shiyan() {
+    JsBridge.call('bridgeImpl','fromJsFunction_init','{"name":"zhangsan"}',function (res) {
+        console.log("res:"+res);
+    });
 }
 
-JsBridge.call();
